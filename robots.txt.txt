@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://qaqountranslation-sys.github.io/qaqoun/sitemap.xml
+
+# إعدادات خاصة بمحركات البحث
+Disallow: /admin/
+Disallow: /private/
