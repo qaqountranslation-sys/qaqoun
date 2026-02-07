@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexLead Pro - منصة متكاملة لإدارة الحملات والLeads</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Google Ads Conversion Tracking -->
+    <script>
+        gtag('config', 'AW-CONVERSION_ID');
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Tajawal', 'sans-serif'] },
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#ec4899',
+                        dark: '#0f172a',
+                        'dark-light': '#1e293b',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        danger: '#ef4444'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background: #0f172a; color: white; overflow-x: hidden; }
+        .gradient-text { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-card:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(99, 102, 241, 0.3); }
+        .hover-lift { transition: all 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2); }
+        .nav-blur { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); }
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .scroll-reveal.active { opacity: 1; transform: translateY(0); }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-scroll { animation: scroll 40s linear infinite; }
+        .animate-scroll:hover { animation-play-state: paused; }
+        
+        /* A/B Testing Badge */
+        .ab-badge { position: absolute; top: 10px; left: 10px; background: #10b981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        
+        /* ROI Calculator Styles */
+        .roi-slider { -webkit-appearance: none; width: 100%; height: 6px; border-radius: 5px; background: rgba(255,255,255,0.1); outline: none; }
+        .roi-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: #6366f1; cursor: pointer; }
+        
+        /* Template Preview */
+        .template-preview { position: relative; overflow: hidden; border-radius: 12px; }
+        .template-preview iframe { width: 100%; height: 400px; border: none; transform: scale(0.8); transform-origin: top center; transition: transform 0.3s; }
+        .template-preview:hover iframe { transform: scale(0.85); }
+        
+        /* Campaign Status */
+        .status-active { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .status-paused { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+        
+        /* Google Forwarding Number */
+        .gfn-display { font-family: monospace; background: rgba(99, 102, 241, 0.1); padding: 8px 16px; border-radius: 8px; border: 1px dashed #6366f1; }
+        
+        /* Chart Container */
+        .chart-container { position: relative; height: 300px; width: 100%; }
+        
+        /* Tab System */
+        .tab-btn { transition: all 0.3s; border-bottom: 2px solid transparent; }
+        .tab-btn.active { border-bottom-color: #6366f1; color: #6366f1; }
+        .tab-content { display: none; animation: fadeIn 0.5s; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="showSection('home')">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/30">
+                        <i class="fas fa-bolt text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">NexLead Pro</span>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-8">
+                    <button onclick="showSection('templates')" class="text-gray-300 hover:text-white transition">القوالب</button>
+                    <button onclick="showSection('campaigns')" class="text-gray-300 hover:text-white transition">الحملات</button>
+                    <button onclick="showSection('tracking')" class="text-gray-300 hover:text-white transition">التتبع</button>
+                    <button onclick="showSection('analytics')" class="text-gray-300 hover:text-white transition">التحليلات</button>
+                    <button onclick="showSection('roi')" class="text-gray-300 hover:text-white transition">حاسبة العائد</button>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button class="bg-gradient-to-r from-primary to-secondary px-6 py-2.5 rounded-full font-semibold hover:shadow-lg hover:shadow-primary/50 transition transform hover:scale-105">
+                        لوحة التحكم
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div id="main-content" class="pt-20 relative z-10">
+
+        <!-- SECTION 1: HOME / DASHBOARD -->
+        <section id="home" class="section-active">
+            <!-- Hero -->
+            <div class="min-h-screen flex items-center hero-gradient mesh-gradient">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-8">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-primary">
+                                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                                النظام متكامل وجاهز للعمل
+                            </div>
+                            <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                                بناء حملات <br>
+                                <span class="gradient-text">ذكية ومربحة</span>
+                            </h1>
+                            <p class="text-xl text-gray-400">
+                                من الصفحة المقصودة إلى tracking الكامل. 
+                                كل ما تحتاجه لإدارة حملات Google Ads وتحسين العائد على الاستثمار.
+                            </p>
+                            <div class="flex gap-4">
+                                <button onclick="showSection('templates')" class="bg-gradient-to-r from-primary to-secondary px-8 py-4 rounded-full font-bold hover:shadow-2xl transition transform hover:scale-105">
+                                    ابدأ بقالب جاهز
+                                </button>
+                                <button onclick="showSection('campaigns')" class="px-8 py-4 rounded-full font-bold border border-white/20 hover:bg-white/5 transition">
+                                    إدارة الحملات
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Dashboard Preview -->
+                        <div class="glass-card rounded-3xl p-6 animate-float">
+                            <div class="bg-dark-light rounded-2xl p-6">
+                                <div class="flex justify-between items-center mb-6">
+                                    <h3 class="font-bold">لوحة المعلومات</h3>
+                                    <span class="text-xs text-green-400">● Live</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-6">
+                                    <div class="bg-dark p-4 rounded-xl">
+                                        <div class="text-gray-400 text-xs">إجمالي الليدات</div>
+                                        <div class="text-2xl font-bold text-primary">1,247</div>
+                                        <div class="text-green-400 text-xs">+23%</div>
+                                    </div>
+                                    <div class="bg-dark p-4 rounded-xl">
+                                        <div class="text-gray-400 text-xs">معدل التحويل</div>
+                                        <div class="text-2xl font-bold text-secondary">4.8%</div>
+                                        <div class="text-green-400 text-xs">+0.5%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="dashboardChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="py-20 bg-dark-light/30">
+                <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center scroll-reveal">
+                        <div class="text-4xl font-bold gradient-text mb-2">50+</div>
+                        <div class="text-gray-400">قالب جاهز</div>
+                    </div>
+                    <div class="text-center scroll-reveal" style="transition-delay: 100ms">
+                        <div class="text-4xl font-bold gradient-text mb-2">99.9%</div>
+                        <div class="text-gray-400">دقة التتبع</div>
+                    </div>
+                    <div class="text-center scroll-reveal" style="transition-delay: 200ms">
+                        <div class="text-4xl font-bold gradient-text mb-2">3.2x</div>
+                        <div class="text-gray-400">متوسط ROI</div>
+                    </div>
+                    <div class="text-center scroll-reveal" style="transition-delay: 300ms">
+                        <div class="text-4xl font-bold gradient-text mb-2">24/7</div>
+                        <div class="text-gray-400">تتبع تلقائي</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: TEMPLATES (صفحات الهبوط) -->
+        <section id="templates" class="hidden py-24">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12 scroll-reveal">
+                    <h2 class="text-4xl font-bold mb-4">قوالب <span class="gradient-text">جاهزة للاستخدام</span></h2>
+                    <p class="text-gray-400">صفحات هبوط محسّنة لـ Google Ads مع تتبع مدمج</p>
+                </div>
+
+                <!-- Template Filters -->
+                <div class="flex justify-center gap-4 mb-12 flex-wrap">
+                    <button class="tab-btn active px-6 py-2" onclick="filterTemplates('all')">الكل</button>
+                    <button class="tab-btn px-6 py-2" onclick="filterTemplates('furniture')">أثاث وتنجيد</button>
+                    <button class="tab-btn px-6 py-2" onclick="filterTemplates('realestate')">عقارات</button>
+                    <button class="tab-btn px-6 py-2" onclick="filterTemplates('services')">خدمات</button>
+                </div>
+
+                <!-- Templates Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="templates-grid">
+                    
+                    <!-- Template 1: Furniture (مبني على الدليل) -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift template-card" data-category="furniture">
+                        <div class="relative">
+                            <div class="ab-badge">A/B Test Ready</div>
+                            <div class="h-48 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center">
+                                <i class="fas fa-couch text-6xl text-orange-400"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">تنجيد الأثاث</h3>
+                            <p class="text-gray-400 text-sm mb-4">صفحة هبوط متخصصة لخدمات تنجيد الأرائك والأسرة مع نموذج قصير وتتبع مكالمات</p>
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs">Google Ads</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs">Call Tracking</span>
+                                <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs">Mobile First</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="previewTemplate('furniture')" class="flex-1 py-2 rounded-lg bg-primary hover:bg-primary/80 transition text-sm font-bold">
+                                    معاينة
+                                </button>
+                                <button onclick="useTemplate('furniture')" class="flex-1 py-2 rounded-lg border border-white/20 hover:bg-white/5 transition text-sm">
+                                    استخدام
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Template 2: Real Estate -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift template-card" data-category="realestate">
+                        <div class="relative">
+                            <div class="ab-badge">A/B Test Ready</div>
+                            <div class="h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                                <i class="fas fa-building text-6xl text-blue-400"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">تقييم عقاري</h3>
+                            <p class="text-gray-400 text-sm mb-4">صفحة جمع بيانات للعملاء المهتمين بتقييم عقاراتهم مع حاسبة تقديرية</p>
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs">Lead Form</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs">Calculator</span>
+                                <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs">CRM Ready</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="previewTemplate('realestate')" class="flex-1 py-2 rounded-lg bg-primary hover:bg-primary/80 transition text-sm font-bold">
+                                    معاينة
+                                </button>
+                                <button onclick="useTemplate('realestate')" class="flex-1 py-2 rounded-lg border border-white/20 hover:bg-white/5 transition text-sm">
+                                    استخدام
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Template 3: Services -->
+                    <div class="glass-card rounded-2xl overflow-hidden hover-lift template-card" data-category="services">
+                        <div class="relative">
+                            <div class="ab-badge">A/B Test Ready</div>
+                            <div class="h-48 bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center">
+                                <i class="fas fa-tools text-6xl text-green-400"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">خدمات منزلية</h3>
+                            <p class="text-gray-400 text-sm mb-4">صفحة حجز مواعيد للخدمات المنزلية مع تقويم تفاعلي وWhatsApp Integration</p>
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs">Booking</span>
+                                <span class="px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs">WhatsApp</span>
+                                <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs">Calendar</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="previewTemplate('services')" class="flex-1 py-2 rounded-lg bg-primary hover:bg-primary/80 transition text-sm font-bold">
+                                    معاينة
+                                </button>
+                                <button onclick="useTemplate('services')" class="flex-1 py-2 rounded-lg border border-white/20 hover:bg-white/5 transition text-sm">
+                                    استخدام
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- A/B Testing Info -->
+                <div class="mt-16 glass-card rounded-2xl p-8 scroll-reveal">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">نظام A/B Testing مدمج</h3>
+                            <p class="text-gray-400 mb-6">كل قالب يأتي مع نسختين (A و B) لاختبار:</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-400"></i>
+                                    <span>عناوين مختلفة (Headlines)</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-400"></i>
+                                    <span>ألوان وأماكن أزرار (CTA)</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-400"></i>
+                                    <span>طول النماذج (Short vs Long)</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-400"></i>
+                                    <span>صور مقابل فيديو</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-dark rounded-2xl p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm text-gray-400">اختبار حالي: Furniture-A vs Furniture-B</span>
+                                <span class="status-active px-3 py-1 rounded-full text-xs">نشط</span>
+                            </div>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>النسخة A (صورة + نموذج قصير)</span>
+                                        <span class="text-green-400">4.2% تحويل</span>
+                                    </div>
+                                    <div class="w-full bg-white/10 rounded-full h-2">
+                                        <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>النسخة B (فيديو + نموذج طويل)</span>
+                                        <span class="text-yellow-400">3.8% تحويل</span>
+                                    </div>
+                                    <div class="w-full bg-white/10 rounded-full h-2">
+                                        <div class="bg-secondary h-2 rounded-full" style="width: 58%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-3 bg-green-500/10 rounded-lg border border-green-500/20">
+                                <p class="text-sm text-green-400">
+                                    <i class="fas fa-lightbulb mr-2"></i>
+                                    النسخة A تؤدي أفضل بنسبة 10.5%. سيتم تطبيقها تلقائياً بعد 48 ساعة.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: CAMPAIGNS (إدارة الحملات) -->
+        <section id="campaigns" class="hidden py-24">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center mb-12">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-2">إدارة <span class="gradient-text">الحملات</span></h2>
+                        <p class="text-gray-400">إنشاء وإدارة حملات Google Ads مباشرة</p>
+                    </div>
+                    <button onclick="createNewCampaign()" class="bg-gradient-to-r from-primary to-secondary px-6 py-3 rounded-full font-bold hover:shadow-lg transition">
+                        <i class="fas fa-plus mr-2"></i> حملة جديدة
+                    </button>
+                </div>
+
+                <!-- Campaign Creator Modal (Hidden by default) -->
+                <div id="campaign-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+                    <div class="glass-card rounded-2xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold">حملة Google Ads جديدة</h3>
+                            <button onclick="closeCampaignModal()" class="text-gray-400 hover:text-white">
+                                <i class="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+                        
+                        <form id="campaign-form" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-bold mb-2">اسم الحملة</label>
+                                <input type="text" class="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 focus:border-primary focus:outline-none" placeholder="مثال: تنجيد أرائك - الرياض">
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">الهدف</label>
+                                    <select class="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 focus:border-primary focus:outline-none">
+                                        <option>زيادة المكالمات</option>
+                                        <option>جمع النماذج</option>
+                                        <option>زيارات الموقع</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">الميزانية اليومية (ر.س)</label>
+                                    <input type="number" class="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 focus:border-primary focus:outline-none" placeholder="200">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold mb-2">استراتيجية العطاء (Bidding)</label>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="bidding" value="maximize-conversions" class="hidden peer" checked>
+                                        <div class="p-4 rounded-lg border border-white/20 peer-checked:border-primary peer-checked:bg-primary/10 transition text-center">
+                                            <i class="fas fa-rocket text-2xl mb-2 text-primary"></i>
+                                            <div class="font-bold text-sm">Maximize Conversions</div>
+                                            <div class="text-xs text-gray-400 mt-1">الحصول على أكبر عدد تحويلات</div>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="bidding" value="target-cpa" class="hidden peer">
+                                        <div class="p-4 rounded-lg border border-white/20 peer-checked:border-primary peer-checked:bg-primary/10 transition text-center">
+                                            <i class="fas fa-bullseye text-2xl mb-2 text-secondary"></i>
+                                            <div class="font-bold text-sm">Target CPA</div>
+                                            <div class="text-xs text-gray-400 mt-1">هدف تكلفة للتحويل</div>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="bidding" value="manual-cpc" class="hidden peer">
+                                        <div class="p-4 rounded-lg border border-white/20 peer-checked:border-primary peer-checked:bg-primary/10 transition text-center">
+                                            <i class="fas fa-hand-pointer text-2xl mb-2 text-accent"></i>
+                                            <div class="font-bold text-sm">Manual CPC</div>
+                                            <div class="text-xs text-gray-400 mt-1">تحكم يدوي بالنقرات</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold mb-2">الكلمات المفتاحية (واحدة في كل سطر)</label>
+                                <textarea rows="4" class="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 focus:border-primary focus:outline-none" placeholder="+تنجيد +أرائك +الرياض&#10;+تفصيل +كنب +جديد&#10;+إصلاح +أثاث"></textarea>
+                                <p class="text-xs text-gray-400 mt-2">
+                                    <i class="fas fa-info-circle mr-1"></i>
+                                    استخدم + قبل الكلمة للتطابق التام (Broad Match Modifier)
+                                </p>
+                            </div>
+
+                            <div class="flex gap-4 pt-4">
+                                <button type="button" onclick="createCampaign()" class="flex-1 bg-gradient-to-r from-primary to-secondary py-3 rounded-lg font-bold hover:shadow-lg transition">
+                                    إنشاء الحملة
+                                </button>
+                                <button type="button" onclick="closeCampaignModal()" class="px-6 py-3 rounded-lg border border-white/20 hover:bg-white/5 transition">
+                                    إلغاء
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Active Campaigns Table -->
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-white/5">
+                                <tr>
+                                    <th class="px-6 py-4 text-right text-sm font-bold">الحملة</th>
+                                    <th class="px-6 py-4 text-right text-sm font-bold">الحالة</th>
+                                    <th class="px-6 py-4 text-right text-sm font-bold">الميزانية/اليوم</th>
+                                    <th class="px-6 py-4 text-right text-sm font-bold">النقرات</th>
+                                    <th class="px-6 py-4 text-right text-sm font-bold">التحويلات</th>
+                                    <th class="px-6 py-4 text-right text-sm font-bold">CPA</th>
+                                    <th class="px-6 py-4 text-right text-sm font-bold">إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5">
+                                <tr class="hover:bg-white/5 transition">
+                                    <td class="px-6 py-4">
+                                        <div class="font-bold">تنجيد أرائك - الرياض</div>
+                                        <div class="text-xs text-gray-400">Search - Maximize Conversions</div>
+                                    </td>
+                                    <td class="px-6 py-4"><span class="status-active px-3 py-1 rounded-full text-xs">نشطة</span></td>
+                                    <td class="px-6 py-4">300 ر.س</td>
+                                    <td class="px-6 py-4">1,245</td>
+                                    <td class="px-6 py-4 text-green-400">48</td>
+                                    <td class="px-6 py-4">62.5 ر.س</td>
+                                    <td class="px-6 py-4">
+                                        <button class="text-primary hover:text-white transition"><i class="fas fa-edit"></i></button>
+                                        <button class="text-gray-400 hover:text-white transition mr-3"><i class="fas fa-chart-line"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition">
+                                    <td class="px-6 py-4">
+                                        <div class="font-bold">تنجيد أسرة - جدة</div>
+                                        <div class="text-xs text-gray-400">Search - Target CPA</div>
+                                    </td>
+                                    <td class="px-6 py-4"><span class="status-active px-3 py-1 rounded-full text-xs">نشطة</span></td>
+                                    <td class="px-6 py-4">250 ر.س</td>
+                                    <td class="px-6 py-4">892</td>
+                                    <td class="px-6 py-4 text-green-400">31</td>
+                                    <td class="px-6 py-4">80.6 ر.س</td>
+                                    <td class="px-6 py-4">
+                                        <button class="text-primary hover:text-white transition"><i class="fas fa-edit"></i></button>
+                                        <button class="text-gray-400 hover:text-white transition mr-3"><i class="fas fa-chart-line"></i></button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition">
+                                    <td class="px-6 py-4">
+                                        <div class="font-bold">تقييم عقاري - test</div>
+                                        <div class="text-xs text-gray-400">Search - Manual CPC</div>
+                                    </td>
+                                    <td class="px-6 py-4"><span class="status-paused px-3 py-1 rounded-full text-xs">متوقفة</span></td>
+                                    <td class="px-6 py-4">150 ر.س</td>
+                                    <td class="px-6 py-4">423</td>
+                                    <td class="px-6 py-4 text-yellow-400">8</td>
+                                    <td class="px-6 py-4">187.5 ر.س</td>
+                                    <td class="px-6 py-4">
+                                        <button class="text-primary hover:text-white transition"><i class="fas fa-play"></i></button>
+                                        <button class="text-gray-400 hover:text-white transition mr-3"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Campaign Optimization Tips -->
+                <div class="mt-8 glass-card rounded-2xl p-6">
+                    <h4 class="font-bold mb-4"><i class="fas fa-magic text-primary mr-2"></i> اقتراحات التحسين الذكية</h4>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="text-sm font-bold mb-2 text-yellow-400">زيادة الميزانية</div>
+                            <p class="text-xs text-gray-400">حملة "تنجيد أرائك" تحقق ROI 340%. زيادة الميزانية 50% قد تجلب 12 تحويل إضافي.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="text-sm font-bold mb-2 text-red-400">تعديل كلمات مفتاحية</div>
+                            <p class="text-xs text-gray-400">كلمة "تفصيل كنب" تكلف 120 ر.س/تحويل. استبعدها أو اخفض العرض.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg border border-white/10">
+                            <div class="text-sm font-bold mb-2 text-green-400">A/B Testing</div>
+                            <p class="text-xs text-gray-400">اختبر عنوان جديد: "خصم 20% على التنجيد" بدلاً من "أفضل خدمة".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TRACKING (نظام التتبع المتكامل) -->
+        <section id="tracking" class="hidden py-24">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">نظام <span class="gradient-text">التتبع المتكامل</span></h2>
+                    <p class="text-gray-400">Google Ads Conversion + Call Tracking + UTM Parameters</p>
+                </div>
+
+                <!-- Tracking Setup Wizard -->
+                <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                    <!-- Step 1: Google Ads -->
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                            <i class="fab fa-google text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Google Ads Conversion</h3>
+                        <p class="text-sm text-gray-400 mb-4">تتبع النماذج والمكالمات تلقائياً</p>
+                        <div class="bg-dark rounded-lg p-3 font-mono text-xs text-green-400 overflow-x-auto">
+                            gtag('event', 'conversion', {<br>
+                            &nbsp;&nbsp;'send_to': 'AW-XXXXXX/...'<br>
+                            });
+                        </div>
+                        <button onclick="generateConversionCode()" class="mt-4 w-full py-2 rounded-lg bg-primary/20 text-primary text-sm hover:bg-primary/30 transition">
+                            توليد الكود
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Call Tracking -->
+                    <div class="glass-card rounded-2xl p-6 hover-lift border-2 border-primary">
+                        <div class="absolute top-4 left-4 px-2 py-1 bg-primary text-xs rounded">مُفَعَّل</div>
+                        <div class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-phone-alt text-2xl text-secondary"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Google Forwarding Number</h3>
+                        <p class="text-sm text-gray-400 mb-4">أرقام ديناميكية لتتبع المكالمات</p>
+                        <div class="gfn-display text-center mb-4">
+                            <span class="text-2xl font-bold">0500 XXX XXX</span>
+                            <div class="text-xs text-gray-400 mt-1">رقم التوجيه المعروض</div>
+                        </div>
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="text-gray-400">الحد الأدنى للتحويل:</span>
+                            <span class="text-green-400">60 ثانية</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: UTM Tracking -->
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-link text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">UTM Builder</h3>
+                        <p class="text-sm text-gray-400 mb-4">روابط مخصصة لتتبع المصادر</p>
+                        <div class="space-y-2">
+                            <input type="text" placeholder="رابط الصفحة" class="w-full bg-dark border border-white/20 rounded px-3 py-2 text-sm">
+                            <input type="text" placeholder="مصدر الحملة (google, facebook)" class="w-full bg-dark border border-white/20 rounded px-3 py-2 text-sm">
+                            <button class="w-full py-2 rounded-lg bg-accent/20 text-accent text-sm hover:bg-accent/30 transition">
+                                إنشاء رابط
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Conversions -->
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold">التحويلات في الوقت الفعلي</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                            <span class="text-sm text-green-400">مباشر</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-4 gap-4 mb-6">
+                        <div class="bg-dark rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold text-primary" id="conv-forms">24</div>
+                            <div class="text-xs text-gray-400">نماذج اليوم</div>
+                        </div>
+                        <div class="bg-dark rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold text-secondary" id="conv-calls">18</div>
+                            <div class="text-xs text-gray-400">مكالمات اليوم</div>
+                        </div>
+                        <div class="bg-dark rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold text-accent" id="conv-rate">3.2%</div>
+                            <div class="text-xs text-gray-400">معدل التحويل</div>
+                        </div>
+                        <div class="bg-dark rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold text-success" id="conv-cost">58 ر.س</div>
+                            <div class="text-xs text-gray-400">متوسط التكلفة</div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Conversions Table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="text-gray-400 border-b border-white/10">
+                                <tr>
+                                    <th class="py-3 text-right">الوقت</th>
+                                    <th class="py-3 text-right">النوع</th>
+                                    <th class="py-3 text-right">المصدر</th>
+                                    <th class="py-3 text-right">الحملة</th>
+                                    <th class="py-3 text-right">القيمة</th>
+                                </tr>
+                            </thead>
+                            <tbody id="conversions-tbody">
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-green-400">منذ 2 دقيقة</td>
+                                    <td class="py-3"><i class="fas fa-phone text-secondary mr-2"></i> مكالمة</td>
+                                    <td class="py-3">Google Ads</td>
+                                    <td class="py-3">تنجيد أرائك</td>
+                                    <td class="py-3">-</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="py-3 text-green-400">منذ 5 دقائق</td>
+                                    <td class="py-3"><i class="fas fa-file-alt text-primary mr-2"></i> نموذج</td>
+                                    <td class="py-3">Google Ads</td>
+                                    <td class="py-3">تنجيد أسرة</td>
+                                    <td class="py-3">lead</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 text-green-400">منذ 12 دقيقة</td>
+                                    <td class="py-3"><i class="fas fa-phone text-secondary mr-2"></i> مكالمة</td>
+                                    <td class="py-3">Organic</td>
+                                    <td class="py-3">-</td>
+                                    <td class="py-3">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Google Apps Script Integration -->
+                <div class="mt-8 glass-card rounded-2xl p-6">
+                    <h4 class="font-bold mb-4"><i class="fab fa-google-drive text-green-400 mr-2"></i> ربط Google Sheets</h4>
+                    <p class="text-sm text-gray-400 mb-4">حفظ الليدات تلقائياً في Google Sheets مع إشعارات بريدية</p>
+                    <div class="bg-dark rounded-lg p-4 font-mono text-xs text-gray-300 overflow-x-auto">
+                        <div class="text-gray-500 mb-2">// Google Apps Script - Code.gs</div>
+                        function doPost(e) {<br>
+                        &nbsp;&nbsp;var sheet = SpreadsheetApp.getActiveSheet();<br>
+                        &nbsp;&nbsp;var data = JSON.parse(e.postData.contents);<br>
+                        &nbsp;&nbsp;sheet.appendRow([<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;new Date(),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;data.name,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;data.phone,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;data.source,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;data.campaign<br>
+                        &nbsp;&nbsp;]);<br>
+                        &nbsp;&nbsp;sendEmailNotification(data);<br>
+                        &nbsp;&nbsp;return ContentService.createTextOutput('Success');<br>
+                        }
+                    </div>
+                    <button class="mt-4 px-4 py-2 rounded-lg bg-green-500/20 text-green-400 text-sm hover:bg-green-500/30 transition">
+                        <i class="fas fa-copy mr-2"></i> نسخ السكربت
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: ANALYTICS -->
+        <section id="analytics" class="hidden py-24">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-8 text-center">لوحة <span class="gradient-text">التحليلات</span></h2>
+                
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="font-bold mb-4">أداء الحملات عبر الزمن</h3>
+                        <div class="chart-container">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="font-bold mb-4">توزيع التحويلات حسب المصدر</h3>
+                        <div class="chart-container">
+                            <canvas id="sourceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attribution Model -->
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="font-bold mb-6">نموذج Attribution</h3>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="p-4 bg-white/5 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-primary mb-2">First Click</div>
+                            <div class="text-sm text-gray-400">Google Ads</div>
+                            <div class="text-xs text-green-400 mt-1">40% من التحويلات</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-secondary mb-2">Last Click</div>
+                            <div class="text-sm text-gray-400">Direct</div>
+                            <div class="text-xs text-green-400 mt-1">35% من التحويلات</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-accent mb-2">Linear</div>
+                            <div class="text-sm text-gray-400">Multi-touch</div>
+                            <div class="text-xs text-green-400 mt-1">20% من التحويلات</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-warning mb-2">Time Decay</div>
+                            <div class="text-sm text-gray-400">Recent</div>
+                            <div class="text-xs text-green-400 mt-1">5% من التحويلات</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: ROI CALCULATOR -->
+        <section id="roi" class="hidden py-24">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">حاسبة <span class="gradient-text">العائد على الاستثمار</span></h2>
+                    <p class="text-gray-400">احسب ROI وROAS وCAC لحملاتك</p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8">
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">ميزانية الحملة (ر.س)</label>
+                            <input type="number" id="roi-budget" class="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 mb-2" placeholder="10000" oninput="calculateROI()">
+                            <input type="range" class="roi-slider" min="1000" max="100000" value="10000" oninput="document.getElementById('roi-budget').value=this.value; calculateROI()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">عدد الليدات المُكتسبة</label>
+                            <input type="number" id="roi-leads" class="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 mb-2" placeholder="100" oninput="calculateROI()">
+                            <input type="range" class="roi-slider" min="10" max="1000" value="100" oninput="document.getElementById('roi-leads').value=this.value; calculateROI()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">نسبة إغلاق الليدات (%)</label>
+                            <input type="number" id="roi-close" class="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 mb-2" placeholder="20" oninput="calculateROI()">
+                            <input type="range" class="roi-slider" min="5" max="50" value="20" oninput="document.getElementById('roi-close').value=this.value; calculateROI()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">متوسط قيمة الصفقة (ر.س)</label>
+                            <input type="number" id="roi-deal" class="w-full bg-dark border border-white/20 rounded-lg px-4 py-3 mb-2" placeholder="5000" oninput="calculateROI()">
+                            <input type="range" class="roi-slider" min="1000" max="50000" value="5000" oninput="document.getElementById('roi-deal').value=this.value; calculateROI()">
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div class="grid md:grid-cols-3 gap-4" id="roi-results">
+                        <div class="bg-dark rounded-xl p-6 text-center border border-primary/30">
+                            <div class="text-sm text-gray-400 mb-2">ROAS</div>
+                            <div class="text-4xl font-bold text-primary" id="result-roas">2.0x</div>
+                            <div class="text-xs text-gray-500 mt-1">عائد على الإنفاق الإعلاني</div>
+                        </div>
+                        <div class="bg-dark rounded-xl p-6 text-center border border-secondary/30">
+                            <div class="text-sm text-gray-400 mb-2">CAC</div>
+                            <div class="text-4xl font-bold text-secondary" id="result-cac">500 ر.س</div>
+                            <div class="text-xs text-gray-500 mt-1">تكلفة اكتساب العميل</div>
+                        </div>
+                        <div class="bg-dark rounded-xl p-6 text-center border border-accent/30">
+                            <div class="text-sm text-gray-400 mb-2">ROI</div>
+                            <div class="text-4xl font-bold text-accent" id="result-roi">100%</div>
+                            <div class="text-xs text-gray-500 mt-1">العائد على الاستثمار</div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Breakdown -->
+                    <div class="mt-8 p-6 bg-white/5 rounded-xl" id="roi-breakdown">
+                        <h4 class="font-bold mb-4">تفصيل الحسابات:</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">إجمالي الإيرادات المتوقعة:</span>
+                                <span class="font-bold" id="breakdown-revenue">100,000 ر.س</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">تكلفة الحملة:</span>
+                                <span class="font-bold text-red-400" id="breakdown-cost">-10,000 ر.س</span>
+                            </div>
+                            <div class="flex justify-between border-t border-white/10 pt-2 mt-2">
+                                <span class="text-gray-400">صافي الربح:</span>
+                                <span class="font-bold text-green-400" id="breakdown-profit">90,000 ر.س</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">عدد العملاء المُكتسبين:</span>
+                                <span class="font-bold" id="breakdown-customers">20</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">متوسط قيمة العميل (LTV):</span>
+                                <span class="font-bold" id="breakdown-ltv">5,000 ر.س</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget" class="fixed bottom-6 left-6 z-50">
+        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary shadow-2xl flex items-center justify-center text-white text-2xl hover:scale-110 transition">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div id="chat-window" class="hidden absolute bottom-16 left-0 w-80 glass-card rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+            <div class="bg-gradient-to-r from-primary to-secondary p-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span class="font-bold text-sm">مساعد NexLead</span>
+                </div>
+                <button onclick="toggleChat()" class="text-white/80 hover:text-white"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="chat-messages" class="h-80 overflow-y-auto p-4 space-y-3 bg-dark/50">
+                <div class="flex gap-2">
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs">AI</div>
+                    <div class="bg-white/10 rounded-2xl rounded-tr-none px-4 py-2 text-sm max-w-[80%]">
+                        مرحباً! كيف يمكنني مساعدتك في إدارة حملاتك؟
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 bg-dark border-t border-white/10">
+                <div class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="اكتب رسالتك..." class="flex-1 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm focus:border-primary focus:outline-none" onkeypress="if(event.key==='Enter') sendMessage()">
+                    <button onclick="sendMessage()" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-primary/80 transition">
+                        <i class="fas fa-paper-plane text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Particles
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 50, density: { enable: true, value_area: 800 } },
+                    color: { value: '#6366f1' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 2, random: true },
+                    line_linked: { enable: true, distance: 150, color: '#6366f1', opacity: 0.1, width: 1 },
+                    move: { enable: true, speed: 1, random: true }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } }
+                }
+            });
+
+            // Initialize Charts
+            initCharts();
+            
+            // Start real-time simulation
+            setInterval(simulateRealTimeData, 5000);
+        });
+
+        // Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+            document.querySelectorAll('section').forEach(s => s.classList.remove('section-active'));
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).classList.add('section-active');
+            window.scrollTo(0, 0);
+        }
+
+        // Template Functions
+        function filterTemplates(category) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.querySelectorAll('.template-card').forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function previewTemplate(type) {
+            alert('معاينة القالب: ' + type + '\nسيتم فتح الـ Template في نافذة جديدة');
+        }
+
+        function useTemplate(type) {
+            if(confirm('هل تريد استخدام هذا القالب؟ سيتم نقلك إلى إنشاء الحملة')) {
+                showSection('campaigns');
+                createNewCampaign();
+            }
+        }
+
+        // Campaign Functions
+        function createNewCampaign() {
+            document.getElementById('campaign-modal').classList.remove('hidden');
+        }
+
+        function closeCampaignModal() {
+            document.getElementById('campaign-modal').classList.add('hidden');
+        }
+
+        function createCampaign() {
+            alert('جاري إنشاء الحملة... (Demo)');
+            closeCampaignModal();
+        }
+
+        // Tracking Functions
+        function generateConversionCode() {
+            const code = `gtag('event', 'conversion', {
+  'send_to': 'AW-123456789/AbC123DeFgH',
+  'value': 50.0,
+  'currency': 'SAR',
+  'transaction_id': '${Date.now()}'
+});`;
+            navigator.clipboard.writeText(code);
+            alert('تم نسخ الكود!');
+        }
+
+        // ROI Calculator
+        function calculateROI() {
+            const budget = parseFloat(document.getElementById('roi-budget').value) || 0;
+            const leads = parseFloat(document.getElementById('roi-leads').value) || 0;
+            const closeRate = parseFloat(document.getElementById('roi-close').value) || 0;
+            const dealValue = parseFloat(document.getElementById('roi-deal').value) || 0;
+
+            const customers = Math.floor(leads * (closeRate / 100));
+            const revenue = customers * dealValue;
+            const profit = revenue - budget;
+            const roi = budget > 0 ? ((profit / budget) * 100).toFixed(0) : 0;
+            const roas = budget > 0 ? (revenue / budget).toFixed(1) : 0;
+            const cac = customers > 0 ? (budget / customers).toFixed(0) : 0;
+
+            document.getElementById('result-roas').textContent = roas + 'x';
+            document.getElementById('result-cac').textContent = cac + ' ر.س';
+            document.getElementById('result-roi').textContent = roi + '%';
+            
+            document.getElementById('breakdown-revenue').textContent = revenue.toLocaleString() + ' ر.س';
+            document.getElementById('breakdown-cost').textContent = '-' + budget.toLocaleString() + ' ر.س';
+            document.getElementById('breakdown-profit').textContent = profit.toLocaleString() + ' ر.س';
+            document.getElementById('breakdown-customers').textContent = customers;
+            document.getElementById('breakdown-ltv').textContent = dealValue.toLocaleString() + ' ر.س';
+        }
+
+        // Chat Functions
+        function toggleChat() {
+            document.getElementById('chat-window').classList.toggle('hidden');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const container = document.getElementById('chat-messages');
+            container.innerHTML += `
+                <div class="flex gap-2 flex-row-reverse chat-message">
+                    <div class="bg-primary text-white rounded-2xl rounded-tl-none px-4 py-2 text-sm max-w-[80%]">${message}</div>
+                </div>
+            `;
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
+
+            setTimeout(() => {
+                const responses = [
+                    "يمكنك البدء بإنشاء حملة جديدة من قسم 'الحملات'",
+                    "ننصح باستخدام قالب 'تنجيد الأثاث' لأنه يحقق أفضل نتائج",
+                    "معدل التحويل الطبيعي في هذا المجال هو 3-5%",
+                    "هل تحتاج مساعدة في إعداد Google Ads Conversion Tracking؟"
+                ];
+                const response = responses[Math.floor(Math.random() * responses.length)];
+                container.innerHTML += `
+                    <div class="flex gap-2 chat-message">
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs">AI</div>
+                        <div class="bg-white/10 rounded-2xl rounded-tr-none px-4 py-2 text-sm max-w-[80%]">${response}</div>
+                    </div>
+                `;
+                container.scrollTop = container.scrollHeight;
+            }, 1000);
+        }
+
+        // Charts
+        function initCharts() {
+            // Dashboard Chart
+            const ctx1 = document.getElementById('dashboardChart');
+            if (ctx1) {
+                new Chart(ctx1, {
+                    type: 'line',
+                    data: {
+                        labels: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو'],
+                        datasets: [{
+                            label: 'الليدات',
+                            data: [65, 78, 90, 85, 102, 124],
+                            borderColor: '#6366f1',
+                            backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } },
+                            x: { grid: { display: false }, ticks: { color: '#9ca3af' } }
+                        }
+                    }
+                });
+            }
+
+            // Performance Chart
+            const ctx2 = document.getElementById('performanceChart');
+            if (ctx2) {
+                new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: ['الأسبوع 1', 'الأسبوع 2', 'الأسبوع 3', 'الأسبوع 4'],
+                        datasets: [{
+                            label: 'النقرات',
+                            data: [450, 520, 480, 600],
+                            backgroundColor: '#6366f1'
+                        }, {
+                            label: 'التحويلات',
+                            data: [12, 18, 15, 24],
+                            backgroundColor: '#10b981'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { labels: { color: '#fff' } } },
+                        scales: {
+                            y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } },
+                            x: { grid: { display: false }, ticks: { color: '#9ca3af' } }
+                        }
+                    }
+                });
+            }
+
+            // Source Chart
+            const ctx3 = document.getElementById('sourceChart');
+            if (ctx3) {
+                new Chart(ctx3, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Google Ads', 'Organic', 'Social Media', 'Direct'],
+                        datasets: [{
+                            data: [45, 25, 20, 10],
+                            backgroundColor: ['#6366f1', '#8b5cf6', '#ec4899', '#10b981']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { position: 'bottom', labels: { color: '#fff' } } }
+                    }
+                });
+            }
+        }
+
+        // Real-time Simulation
+        function simulateRealTimeData() {
+            const convForms = document.getElementById('conv-forms');
+            const convCalls = document.getElementById('conv-calls');
+            
+            if (convForms && Math.random() > 0.7) {
+                convForms.textContent = parseInt(convForms.textContent) + 1;
+            }
+            if (convCalls && Math.random() > 0.8) {
+                convCalls.textContent = parseInt(convCalls.textContent) + 1;
+            }
+        }
+
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('campaign-modal');
+            if (event.target === modal) closeCampaignModal();
+        }
+
+        // Initialize ROI
+        calculateROI();
+    </script>
+</body>
+</html>
