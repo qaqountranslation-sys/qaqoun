@@ -23,6 +23,115 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://qaqountranslation-sys.github.io/qaqoun/">
     
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1DLQW93LCP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1DLQW93LCP', {
+            'page_title': 'Qaqun Translation Office',
+            'page_location': 'https://qaqountranslation-sys.github.io/qaqoun/',
+            'custom_map': {'custom_parameter_1': 'language'}
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // تتبع الواتساب
+            document.querySelectorAll('a[href*="wa.me"]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    gtag('event', 'contact_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'whatsapp',
+                        'value': 1
+                    });
+                });
+            });
+
+            // تتبع الهاتف
+            document.querySelectorAll('a[href^="tel:"]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    gtag('event', 'contact_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'phone_call',
+                        'value': 2
+                    });
+                });
+            });
+
+            // تتبع البريد
+            document.querySelectorAll('a[href^="mailto:"]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    gtag('event', 'contact_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'email',
+                        'value': 3
+                    });
+                });
+            });
+
+            // تتبع النموذج
+            const form = document.getElementById('translationForm');
+            if (form) {
+                form.addEventListener('focusin', function(e) {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') {
+                        gtag('event', 'form_interaction', {
+                            'event_category': 'form',
+                            'event_label': e.target.name
+                        });
+                    }
+                }, {once: true});
+
+                form.addEventListener('submit', function() {
+                    const formData = new FormData(form);
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'lead',
+                        'event_label': formData.get('serviceType') || 'unknown',
+                        'value': parseInt(formData.get('pages')) || 1
+                    });
+                });
+            }
+
+            // تتبع الأقسام
+            const sections = ['services', 'testimonials', 'prices', 'contact'];
+            const observedSections = new Set();
+            
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !observedSections.has(entry.target.id)) {
+                        observedSections.add(entry.target.id);
+                        gtag('event', 'scroll_depth', {
+                            'event_category': 'engagement',
+                            'event_label': entry.target.id
+                        });
+                    }
+                });
+            }, {threshold: 0.5});
+
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) sectionObserver.observe(el);
+            });
+
+            // تتبع وقت البقاء
+            let startTime = Date.now();
+            window.addEventListener('beforeunload', function() {
+                const timeSpent = Math.round((Date.now() - startTime) / 1000);
+                gtag('event', 'time_on_site', {
+                    'event_category': 'engagement',
+                    'value': timeSpent
+                });
+            });
+
+            // تتبع تبديل اللغة
+            document.querySelector('.lang-toggle button')?.addEventListener('click', function() {
+                gtag('event', 'language_switch', {
+                    'event_category': 'preference',
+                    'event_label': currentLang === 'ar' ? 'to_hebrew' : 'to_arabic'
+                });
+            });
+        });
+    </script>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -651,7 +760,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-3">
-                        <a href="https://www.google.com/maps?q=مكت+قاقون+للترجمة+Qaqun+Translation+Office" target="_blank" class="google-badge text-white px-6 py-3 rounded-full font-bold text-center hover:shadow-lg transition">
+                        <a href="https://www.google.com/maps?q=قلقيلية+سوق+عثمان+التجاري" target="_blank" class="google-badge text-white px-6 py-3 rounded-full font-bold text-center hover:shadow-lg transition">
                             <i class="fas fa-map-marked-alt ml-2"></i>
                             צפה במפה | عرض على الخريطة
                         </a>
@@ -771,7 +880,7 @@
                     </div>
 
                     <div>
-                        <label class="block text-gray-700 font-bold mb-2">אימייל | البريد الإلكترونי</label>
+                        <label class="block text-gray-700 font-bold mb-2">אימייל | البريد الإلكتروني</label>
                         <input type="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="qaqouni@gmail.com">
                     </div>
 
@@ -885,6 +994,134 @@
         </div>
     </section>
 
+    <!-- قسم التواصل -->
+    <section id="contact" class="py-20 px-4 bg-gray-100">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12 scroll-reveal">
+                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">צור קשר | اتصل بنا</h3>
+                <p class="text-gray-600">אנחנו כאן לעזור 24/7 | نحن هنا لمساعدتك على مدار الساعة</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- واتساب -->
+                <a href="https://wa.me/972598955585" target="_blank" class="glass-card p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition group scroll-reveal social-btn">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 text-2xl group-hover:scale-110 transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">וואטסאפ | واتساب</h4>
+                    <p class="text-gray-600 text-sm">הודעה ישירה | رسالة مباشرة</p>
+                    <p class="text-primary font-bold mt-2 text-sm">059-895-5585</p>
+                </a>
+
+                <!-- هاتف أرضي -->
+                <a href="tel:+97292943841" class="glass-card p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition group scroll-reveal social-btn">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-primary text-2xl group-hover:scale-110 transition">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">טלפון | هاتف</h4>
+                    <p class="text-gray-600 text-sm">09:00-21:00</p>
+                    <p class="text-primary font-bold mt-2">09-2943841</p>
+                </a>
+
+                <!-- جوال 1 -->
+                <a href="tel:+972598955585" class="glass-card p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition group scroll-reveal social-btn">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 text-purple-600 text-2xl group-hover:scale-110 transition">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">נייד 1 | جوال 1</h4>
+                    <p class="text-gray-600 text-sm">זמין 24/7 | متاح 24/7</p>
+                    <p class="text-primary font-bold mt-2">059-895-5585</p>
+                </a>
+
+                <!-- جوال 2 -->
+                <a href="tel:+972568955585" class="glass-card p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition group scroll-reveal social-btn">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-orange-600 text-2xl group-hover:scale-110 transition">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">נייד 2 | جوال 2</h4>
+                    <p class="text-gray-600 text-sm">זמין 24/7 | متاح 24/7</p>
+                    <p class="text-primary font-bold mt-2">056-895-5585</p>
+                </a>
+            </div>
+
+            <!-- العنوان والبريد -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-8 rounded-xl shadow-lg text-center scroll-reveal">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 text-red-600 text-2xl">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-primary">כתובת | العنوان</h4>
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        שוק עות'מאן המסחרי, קומה 2<br>
+                        כניסת בנק קהיר עמן, מול העירייה
+                    </p>
+                    <p class="text-gray-500 mt-2 text-sm">
+                        سوق عثمان التجاري، الطابق الثاني<br>
+                        دخلة بنك القاهرة عمان، مقابل البلدية
+                    </p>
+                    <a href="https://www.google.com/maps?q=قلقيلية+سوق+عثمان+التجاري" target="_blank" class="inline-block mt-4 text-primary hover:underline">
+                        <i class="fas fa-map ml-2"></i>צפה במפה | عرض على الخريطة
+                    </a>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl shadow-lg text-center scroll-reveal">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 text-yellow-600 text-2xl">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 text-primary">אימייל | البريد</h4>
+                    <p class="text-gray-700 text-lg mb-4">qaqouni@gmail.com</p>
+                    
+                    <h4 class="font-bold text-lg mb-2 text-primary">שעות פעילות | ساعات العمل</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        א'-ה': 09:00-21:00 | الأحد-الخميس: 9 ص - 9 م<br>
+                        ו': 15:00-17:00, 20:30-24:00 | الجمعة: 3-5 م، 8:30 م-12 ص<br>
+                        שבת: 00:00-21:00 | السبت: 12 ص - 9 م
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم وسائل التواصل -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto text-center">
+            <h3 class="text-3xl font-bold text-primary mb-8 scroll-reveal">עקבו אחרינו | تابعنا</h3>
+            
+            <div class="flex flex-wrap justify-center gap-6 scroll-reveal">
+                <a href="https://www.facebook.com/alameedinhebrew" target="_blank" class="social-btn bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.facebook.com/QaqunTranslationOffice" target="_blank" class="social-btn bg-blue-800 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl">
+                    <i class="fas fa-building"></i>
+                </a>
+                <a href="https://www.youtube.com/@alameedinhebrew" target="_blank" class="social-btn bg-red-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/@alameedinhebrew" target="_blank" class="social-btn bg-black text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://wa.me/972598955585" target="_blank" class="social-btn bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg hover:shadow-xl">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+
+            <div class="mt-8 grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <a href="https://www.facebook.com/alameedinhebrew" target="_blank" class="bg-gray-100 p-4 rounded-lg hover:bg-blue-50 transition">
+                    <i class="fab fa-facebook text-blue-600 text-2xl mb-2"></i>
+                    <p class="font-bold text-gray-700">@alameedinhebrew</p>
+                </a>
+                <a href="https://www.youtube.com/@alameedinhebrew" target="_blank" class="bg-gray-100 p-4 rounded-lg hover:bg-red-50 transition">
+                    <i class="fab fa-youtube text-red-600 text-2xl mb-2"></i>
+                    <p class="font-bold text-gray-700">@alameedinhebrew</p>
+                </a>
+                <a href="https://www.tiktok.com/@alameedinhebrew" target="_blank" class="bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition">
+                    <i class="fab fa-tiktok text-black text-2xl mb-2"></i>
+                    <p class="font-bold text-gray-700">@alameedinhebrew</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- التذييل -->
     <footer class="bg-dark text-white py-12 px-4">
         <div class="container mx-auto">
@@ -944,6 +1181,11 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- زر العودة للأعلى -->
+    <button onclick="scrollToTop()" id="scrollTopBtn" class="hidden fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg items-center justify-center hover:bg-secondary transition z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         // تبديل اللغة
         let currentLang = 'ar';
@@ -960,13 +1202,11 @@
                 });
                 btn.textContent = 'العربية';
                 currentLang = 'he';
-                document.body.style.direction = 'rtl';
             } else {
                 arElements.forEach(el => el.classList.remove('hidden'));
                 heElements.forEach(el => el.classList.add('hidden'));
                 btn.textContent = 'עברית';
                 currentLang = 'ar';
-                document.body.style.direction = 'rtl';
             }
         }
 
@@ -1001,7 +1241,22 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // زر العودة للأعلى
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('scrollTopBtn');
+            if (window.pageYOffset > 300) {
+                btn.classList.remove('hidden');
+                btn.classList.add('flex');
+            } else {
+                btn.classList.add('hidden');
+                btn.classList.remove('flex');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
-
 </html>
