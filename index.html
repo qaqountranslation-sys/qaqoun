@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משרד קאקון לתרגום | مكتب قاقون للترجمة | Qaqun Translation Office - ترجمة معتمدة 352/2019</title>
+    
+    <!-- Meta Tags للـ SEO -->
+    <meta name="description" content="משרד קאקון לתרגום משפטי מוסמך - ترجمة قانونية معتمدة من وزارة العدل 352/2019 - عربي עברי אנגלית - قلقيلية">
+    <meta name="keywords" content="תרגום משפטי, משרד תרגום קלקיליה, תרגום ערבי עברי, ترجمة معتمدة, مكتب ترجمة قلقيلية, Qalqilya translation, ترجمة قانونية, תרגום מוסמך משרד המשפטים">
+    <meta name="author" content="Qaqun Translation Office">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph للفيسبوك -->
+    <meta property="og:title" content="משרד קאקון לתרגום משפטי מוסמך | مكتب قاقون للترجمة المعتمدة">
+    <meta property="og:description" content="תרגום מוסמך מטעם משרד המשפטים 352/2019 - ترجمة معتمدة من وزارة العدل">
+    <meta property="og:image" content="https://qaqountranslation-sys.github.io/qaqoun/logo.jpg">
+    <meta property="og:url" content="https://qaqountranslation-sys.github.io/qaqoun/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://qaqountranslation-sys.github.io/qaqoun/">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'Heebo', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#3b82f6',
+                        accent: '#f59e0b',
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .social-btn {
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+        .hebrew-text {
+            direction: rtl;
+            font-family: 'Heebo', sans-serif;
+        }
+        .lang-toggle {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 40;
+        }
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        .google-badge {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+        }
+        .stars {
+            color: #fbbf24;
+        }
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-icon.active {
+            transform: rotate(180deg);
+        }
+        .price-card {
+            transition: all 0.4s ease;
+        }
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+        .price-card.featured {
+            transform: scale(1.05);
+        }
+        .price-card.featured:hover {
+            transform: scale(1.08);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #f59e0b;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1e3a8a;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #4bb71b;
+            stroke-miterlimit: 10;
+            margin: 10% auto;
+            box-shadow: inset 0px 0px 0px #4bb71b;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #4bb71b;
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+        @keyframes stroke {
+            100% { stroke-dashoffset: 0; }
+        }
+        @keyframes scale {
+            0%, 100% { transform: none; }
+            50% { transform: scale3d(1.1, 1.1, 1); }
+        }
+        @keyframes fill {
+            100% { box-shadow: inset 0px 0px 0px 30px #4bb71b; }
+        }
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 90px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: #1e3a8a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 40;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-to-top:hover {
+            background: #f59e0b;
+            transform: translateY(-5px);
+        }
+        .office-image {
+            transition: all 0.5s ease;
+        }
+        .office-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    
+    <!-- Schema.org للـ SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "משרד קאקון לתרגום | مكتب قاقون للترجمة",
+        "image": "https://qaqountranslation-sys.github.io/qaqoun/logo.jpg",
+        "description": "משרד תרגום משפטי מוסמך מטעם משרד המשפטים - ترجمة قانونية معتمدة من وزارة العدل",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "سوق عثمان التجاري - الطابق الثاني",
+            "addressLocality": "قلقيلية",
+            "addressRegion": "الضفة الغربية",
+            "addressCountry": "PS"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "32.1968",
+            "longitude": "35.0123"
+        },
+        "telephone": ["+97292943841", "+972598955585"],
+        "email": "qaqouni@gmail.com",
+        "url": "https://qaqountranslation-sys.github.io/qaqoun/",
+        "openingHours": ["Su-Th 09:00-21:00", "Fr 15:00-17:00", "Fr 20:30-24:00", "Sa 00:00-21:00"],
+        "priceRange": "₪₪",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127"
+        }
+    }
+    </script>
+<base target="_blank">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 overflow-x-hidden">
+
+    <!-- زر تبديل اللغة -->
+    <div class="lang-toggle">
+        <button onclick="toggleLanguage()" class="bg-white shadow-lg rounded-full p-3 hover:shadow-xl transition border-2 border-primary">
+            <span id="langBtn" class="text-primary font-bold">עברית</span>
+        </button>
+    </div>
+
+    <!-- زر العودة للأعلى -->
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- شريط التنبيه العلوي -->
+    <div class="gradient-bg text-white py-2 px-4 text-center text-sm">
+        <i class="fas fa-certificate ml-2"></i>
+        <span id="topBarAr">مرخص من وزارة العدل الفلسطينية - رقم الترخيص: 352/2019 | معتمد من غرفة تجارة قلقيلية</span>
+        <span id="topBarHe" class="hidden hebrew-text">מוסמך מטעם משרד המשפטים הפלסטיני - מספר רישיון: 352/2019</span>
+    </div>
+
+    <!-- رأس الصفحة -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- اللوجو -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold">
+                        ק
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary">משרד קאקון</h1>
+                        <p class="text-xs text-gray-600">Qaqun Translation Office | مكتب قاقون</p>
+                    </div>
+                </div>
+                
+                <!-- شارة الترخيص في الهيدر -->
+                <div class="hidden lg:flex items-center gap-2 bg-green-50 px-4 py-2 rounded-full border border-green-200">
+                    <i class="fas fa-shield-alt text-green-600"></i>
+                    <span class="text-green-800 text-sm font-bold">רישיון 352/2019 | ترخيص 352/2019</span>
+                </div>
+                
+                <!-- معلومات الاتصال السريعة -->
+                <div class="hidden md:flex items-center gap-6 text-sm">
+                    <a href="tel:+97292943841" class="flex items-center gap-2 text-primary hover:text-secondary transition">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>09-2943841</span>
+                    </a>
+                    <a href="https://wa.me/972598955585" target="_blank" class="flex items-center gap-2 text-green-600 hover:text-green-700 transition">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>וואטסאפ | واتساب</span>
+                    </a>
+                </div>
+
+                <!-- زر القائمة للموبايل -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-primary text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- قائمة الموبايل -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4 space-y-3">
+                <div class="bg-green-50 p-3 rounded-lg border border-green-200 mb-4">
+                    <i class="fas fa-shield-alt text-green-600 ml-2"></i>
+                    <span class="text-green-800 text-sm font-bold">רישיון משרד המשפטים 352/2019</span>
+                </div>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-primary nav-link">שירותים | خدمات</a>
+                <a href="#testimonials" class="block py-2 text-gray-700 hover:text-primary nav-link">ביקורות | آراء العملاء</a>
+                <a href="#order" class="block py-2 text-gray-700 hover:text-primary nav-link">הזמן תרגום | اطلب ترجمة</a>
+                <a href="#prices" class="block py-2 text-gray-700 hover:text-primary nav-link">מחירים | الأسعار</a>
+                <a href="#faq" class="block py-2 text-gray-700 hover:text-primary nav-link">שאלות נפוצות | الأسئلة الشائعة</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary nav-link">צור קשר | اتصل بنا</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي Hero -->
+    <section class="gradient-bg text-white py-20 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        
+        <div class="container mx-auto text-center relative z-10" data-aos="fade-up">
+            <!-- شارة الترخيص في الهيرو -->
+            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-white/30">
+                <i class="fas fa-award text-accent text-xl"></i>
+                <span class="font-bold">משרד המשפטים 352/2019 | وزارة العدل 352/2019</span>
+            </div>
+            
+            <div class="animate-float mb-8">
+                <i class="fas fa-language text-6xl mb-4 opacity-90"></i>
+            </div>
+            
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                <span id="heroTitleAr">ترجمة قانونية معتمدة</span>
+                <span id="heroTitleHe" class="hidden hebrew-text block">תרגום משפטי מוסמך</span>
+                <br>
+                <span class="text-accent">عربي ⇄ עברי ⇄ English</span>
+            </h2>
+            
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
+                <span id="heroDescAr">مكتب قاقون للترجمة يقدم خدمات ترجمة مرخصة ومعتمدة منذ 2020 - تخصص في الترجمة القانونية الدقيقة</span>
+                <span id="heroDescHe" class="hidden hebrew-text block">משרד קאקון מציע שירותי תרגום מורשים ומאושרים מאז 2020 - התמחות בתרגום משפטי מדויק</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#order" class="bg-accent text-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <i class="fas fa-paper-plane ml-2"></i>
+                    <span id="ctaOrderAr">اطلب ترجمة الآن</span>
+                    <span id="ctaOrderHe" class="hidden hebrew-text">הזמן תרגום עכשיו</span>
+                </a>
+                <a href="https://wa.me/972598955585" target="_blank" class="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-lg">
+                    <i class="fab fa-whatsapp ml-2 text-green-600 text-xl"></i>
+                    <span>וואטסאפ | واتساب</span>
+                </a>
+            </div>
+            
+            <!-- شارات الثقة -->
+            <div class="mt-12 flex flex-wrap justify-center gap-6 text-sm opacity-90">
+                <div class="flex items-center gap-2" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-certificate text-accent"></i>
+                    <span>משרד המשפטים | وزارة العدل</span>
+                </div>
+                <div class="flex items-center gap-2" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-check-circle text-accent"></i>
+                    <span>מאושר רשמית | معتمد رسمياً</span>
+                </div>
+                <div class="flex items-center gap-2" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-star text-accent"></i>
+                    <span>4.9/5 דירוג | تقييم</span>
+                </div>
+                <div class="flex items-center gap-2" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-users text-accent"></i>
+                    <span>+1000 לקוחות | عميل</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الترخيص والمصداقية -->
+    <section class="py-12 px-4 bg-green-50 border-y border-green-200">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-right" data-aos="fade-up">
+                <div class="flex items-center gap-4">
+                    <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-green-800 mb-1">מוסמך רשמית | مرخص رسمياً</h3>
+                        <p class="text-green-700 hebrew-text">משרד המשפטים הפלסטיני</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white px-8 py-4 rounded-xl shadow-md border-2 border-green-500">
+                    <p class="text-gray-600 text-sm mb-1">מספר רישיון | رقم الترخيص</p>
+                    <p class="text-4xl font-bold text-green-700">352/2019</p>
+                </div>
+                
+                <div class="text-green-800 max-w-md">
+                    <p class="leading-relaxed">
+                        <i class="fas fa-info-circle ml-2"></i>
+                        <span id="licenseDescAr">جميع الترجمات مصدقة ومعتمدة من وزارة العدل الفلسطينية، ويتم ختمها بختم المكتب الرسمي المعتمد لدى كافة الجهات الحكومية والسفارات.</span>
+                        <span id="licenseDescHe" class="hidden hebrew-text block">כל התרגומים מאושרים על ידי משרד המשפטים הפלסטיני וחתומים בחותם הרשמי של המשרד המוכר בכל הגורמים הממשלתיים והשגרירויות.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الصور والمعرض -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">גלריה | معرض الصور</h3>
+                <p class="text-gray-600">תמונות מהמשרד | صور من المكتب</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- صورة 1: واجهة المكتب -->
+                <div class="glass-card rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" 
+                             alt="واجهة المكتب" 
+                             class="office-image w-full h-full object-cover"
+                             loading="lazy">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold text-lg">חזית המשרד | واجهة المكتب</h4>
+                        <p class="text-gray-600 text-sm">سوق عثمان التجاري - قلقيلية</p>
+                    </div>
+                </div>
+                
+                <!-- صورة 2: شهادة الترخيص -->
+                <div class="glass-card rounded-2xl overflow-hidden shadow-lg border-2 border-green-500" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-64 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-white">
+                        <div class="text-center p-6">
+                            <i class="fas fa-certificate text-6xl mb-4"></i>
+                            <p class="text-2xl font-bold">רישיון משרד המשפטים</p>
+                            <p class="text-xl">وزارة العدل</p>
+                            <p class="text-3xl font-bold mt-2">352/2019</p>
+                            <div class="mt-4 flex justify-center gap-2">
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                                <i class="fas fa-star text-yellow-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 text-center bg-green-50">
+                        <h4 class="font-bold text-lg text-green-800">תעודת רישיון | شهادة الترخيص</h4>
+                        <p class="text-green-600 text-sm">מוסמך רשמית | معتمد رسمياً</p>
+                    </div>
+                </div>
+                
+                <!-- صورة 3: عينات من الترجمات -->
+                <div class="glass-card rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop" 
+                             alt="عينات ترجمة" 
+                             class="office-image w-full h-full object-cover"
+                             loading="lazy">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold text-lg">דוגמאות עבודה | عينات أعمال</h4>
+                        <p class="text-gray-600 text-sm">ترجمات معتمدة لعملائنا</p>
+                        <div class="mt-2 flex justify-center gap-2">
+                            <span class="bg-primary text-white px-2 py-1 rounded text-xs">عربي</span>
+                            <span class="bg-primary text-white px-2 py-1 rounded text-xs">עברית</span>
+                            <span class="bg-primary text-white px-2 py-1 rounded text-xs">English</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- معرض إضافي -->
+            <div class="mt-8 grid md:grid-cols-4 gap-4">
+                <div class="glass-card p-4 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-award text-3xl text-primary"></i>
+                    </div>
+                    <p class="font-bold text-sm">ختم وزارة العدل</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-stamp text-3xl text-green-600"></i>
+                    </div>
+                    <p class="font-bold text-sm">ختم المكتب الرسمي</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-signature text-3xl text-accent"></i>
+                    </div>
+                    <p class="font-bold text-sm">توقيع معتمد</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="fas fa-check-double text-3xl text-red-600"></i>
+                    </div>
+                    <p class="font-bold text-sm">مراجعة قانونية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم فيديو تعريفي -->
+    <section class="py-16 px-4 bg-gray-100">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">סרטון תדמית | فيديو تعريفي</h3>
+                <p class="text-gray-600">הכירו את משרד קאקון לתרגום | تعرف على مكتب قاقون للترجمة</p>
+            </div>
+            
+            <div class="glass-card rounded-2xl shadow-xl p-4" data-aos="fade-up">
+                <div class="relative rounded-xl overflow-hidden bg-gray-900" style="padding-bottom: 56.25%;">
+                    <iframe 
+                        class="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/watch?v=KgtsHrQ3pCI" 
+                        title="Qaqun Translation Office"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-gray-600 text-sm">
+                        <i class="fas fa-info-circle ml-2"></i>
+                        לצפייה בסרטונים נוספים: 
+                        <a href="https://www.youtube.com/@alameedinhebrew" target="_blank" class="text-red-600 font-bold hover:underline">YouTube Channel</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم آراء العملاء (Testimonials) -->
+    <section id="testimonials" class="py-20 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">ביקורות לקוחות | آراء العملاء</h3>
+                <p class="text-gray-600">מה לקוחותינו אומרים | ما يقوله عملاؤنا</p>
+                <div class="flex justify-center items-center gap-2 mt-4">
+                    <div class="stars text-2xl">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-700">4.9/5</span>
+                    <span class="text-gray-500">(127 ביקורות | تقييم)</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- تقييم 1 -->
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            أ.ع
+                        </div>
+                        <div>
+                            <h4 class="font-bold">א.ע | أ.ع</h4>
+                            <div class="stars text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        "خدمة ممتازة وسرعة في التنفيذ. ترجمة معتمدة من وزارة العدل تم قبولها في المحكمة بدون أي مشاكل. أنصح الجميع بالتعامل معهم."
+                    </p>
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>ترجمة محضر شرطة | תרגום פרוטוקול משטרה</span>
+                    </div>
+                </div>
+
+                <!-- تقييم 2 -->
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            ד.כ
+                        </div>
+                        <div>
+                            <h4 class="font-bold hebrew-text">ד.כ | د.ك</h4>
+                            <div class="stars text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4 hebrew-text">
+                        "שירות מקצועי ואמין. התרגום הוגש לבית המשפט והתקבל ללא הערות. מחירים הוגנים ושירות אדיב. ממליץ בחום!"
+                    </p>
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>ترجمة عقد عمل | תרגום חוזה עבודה</span>
+                    </div>
+                </div>
+
+                <!-- تقييم 3 -->
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-accent rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            س.م
+                        </div>
+                        <div>
+                            <h4 class="font-bold">ס.מ | س.م</h4>
+                            <div class="stars text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        "ترجمة دقيقة جداً للغة العبرية. استخدمت الترجمة في السفارة وتم قبولها فوراً. شكراً على الاحترافية والسرعة."
+                    </p>
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>ترجمة شهادة جامعية | תרגום תעודה אקדמית</span>
+                    </div>
+                </div>
+
+                <!-- تقييم 4 -->
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            י.ב
+                        </div>
+                        <div>
+                            <h4 class="font-bold hebrew-text">י.ב | ي.ب</h4>
+                            <div class="stars text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4 hebrew-text">
+                        "עבודה מקצועית ומהירה. התרגום היה מדויק והוגש בזמן. מחירים סבירים לגמרי. אשתמש בשירותים שוב בעתיד."
+                    </p>
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>ترجمة تقرير طبي | תרגום דוח רפואי</span>
+                    </div>
+                </div>
+
+                <!-- تقييم 5 -->
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            م.ر
+                        </div>
+                        <div>
+                            <h4 class="font-bold">מ.ר | م.ر</h4>
+                            <div class="stars text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        "محامي في نابلس، أتعامل مع المكتب بشكل دائم لترجمة المستندات القانونية. دقة عالية ومصداقية تامة. شكراً لفريق العمل."
+                    </p>
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>ترجمة قانونية للمحامين | תרגום משפטי לעורכי דין</span>
+                    </div>
+                </div>
+
+                <!-- تقييم 6 -->
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            נ.א
+                        </div>
+                        <div>
+                            <h4 class="font-bold hebrew-text">נ.א | ن.أ</h4>
+                            <div class="stars text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4 hebrew-text">
+                        "שירות מעולה! התרגום התקבל במשרד הפנים ללא שום בעיות. צוות מקצועי ואדיב. ממליץ בחום לכל מי שצריך תרגום מוסמך."
+                    </p>
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>ترجمة جواز سفر | תרגום דרכון</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- دعوة لكتابة تقييم -->
+            <div class="mt-12 text-center" data-aos="fade-up">
+                <div class="glass-card p-8 rounded-2xl shadow-lg max-w-2xl mx-auto">
+                    <h4 class="text-2xl font-bold text-primary mb-4">השאר ביקורת | اكتب تقييمك</h4>
+                    <p class="text-gray-600 mb-4">שתף את החוויה שלך איתנו | شاركنا تجربتك</p>
+                    <a href="https://www.facebook.com/QaqunTranslationOffice/reviews" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>כתוב ביקורת בפייסבוק | اكتب تقييم على فيسبوك</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم Google Business Preview -->
+    <section class="py-16 px-4 bg-blue-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-3xl font-bold text-primary mb-4">Google Business Profile</h3>
+                <p class="text-gray-600">חפשו אותנו בגוגל | ابحث عنا على جوجل</p>
+            </div>
+            
+            <div class="glass-card rounded-2xl shadow-xl p-8 max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-32 h-32 bg-primary rounded-2xl flex items-center justify-center text-white text-5xl shadow-lg">
+                        ק
+                    </div>
+                    <div class="flex-1 text-center md:text-right">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-2">משרד קאקון לתרגום | مكتب قاقون للترجمة</h4>
+                        <div class="flex items-center justify-center md:justify-start gap-2 mb-3">
+                            <div class="stars text-xl">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600">4.9 (127 ביקורות | تقييم)</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            <i class="fas fa-map-marker-alt text-red-500 ml-2"></i>
+                            שוק עות'מאן המסחרי, קלקיליה | سوق عثمان التجاري، قلقيلية
+                        </p>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">פתוח עכשיו | مفتوح الآن</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">תרגום משפטי מוסמך | ترجمة قانونية معتمدة</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-bold">352/2019</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <a href="https://www.google.com/maps?q=قلقيلية+سوق+عثمان+التجاري" target="_blank" class="google-badge text-white px-6 py-3 rounded-full font-bold text-center hover:shadow-lg transition">
+                            <i class="fas fa-map-marked-alt ml-2"></i>
+                            צפה במפה | عرض على الخريطة
+                        </a>
+                        <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" target="_blank" class="bg-white border-2 border-primary text-primary px-6 py-3 rounded-full font-bold text-center hover:bg-primary hover:text-white transition">
+                            <i class="fas fa-pen ml-2"></i>
+                            כתוב ביקורת | كتابة تقييم
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="py-20 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">שירותי תרגום | خدمات الترجمة</h3>
+                <p class="text-gray-600">תרגום מוסמך לשפות ערבית, עברית ואנגלית | ترجمة معتمدة للغات العربية والعبرية والإنجليزية</p>
+                <div class="w-24 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- خدمة 1 -->
+                <div class="service-card glass-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-primary text-2xl">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">תרגום משפטי מוסמך | الترجمة القانونية المعتمدة</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        תרגום מוסמך מטעם משרד המשפטים 352/2019 לחוזים, צוואות, ייפויי כוח, ותיקי בית משפט.
+                    </p>
+                </div>
+
+                <!-- خدمة 2 -->
+                <div class="service-card glass-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600 text-2xl">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">תרגום מסמכים אישיים | ترجمة المستندات الشخصية</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        דרכונים, תעודות זהות, תעודות לידה ונישואין, רישומים פליליים לשגרירויות.
+                    </p>
+                </div>
+
+                <!-- خدمة 3 -->
+                <div class="service-card glass-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 text-purple-600 text-2xl">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">תרגום אקדמי מוסמך | الترجمة الأكاديمية المعتمدة</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        תעודות בגרות, תעודות אקדמיות, גיליונות ציונים, רישומים אקדמיים להשוואה והגשה.
+                    </p>
+                </div>
+
+                <!-- خدمة 4 -->
+                <div class="service-card glass-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6 text-red-600 text-2xl">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">תרגום רפואי מוסמך | الترجمة الطبية المعتمدة</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        דוחות רפואיים, מרשמים, תיקים רפואיים, פרוטוקולי משטרה רפואיים בדיוק גבוה.
+                    </p>
+                </div>
+
+                <!-- خدمة 5 -->
+                <div class="service-card glass-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6 text-yellow-600 text-2xl">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">פרוטוקולי משטרה ובתי משפט | محاضر الشرطة والمحاكم</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        התמחות בתרגום מוסמך של פרוטוקולי משטרה, תלונות, החלטות משפטיות, ותיקי בתי משפט.
+                    </p>
+                </div>
+
+                <!-- خدمة 6 -->
+                <div class="service-card glass-card p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6 text-indigo-600 text-2xl">
+                        <i class="fas fa-stamp"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">אישור משרד המשפטים | تصديق وزارة العدل</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        כל התרגומים מאושרים על ידי משרד המשפטים הפלסטיני, מוכנים לשימוש בכל הגורמים הממשלתיים והשגרירויות.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأسئلة الشائعة FAQ -->
+    <section id="faq" class="py-20 px-4 bg-gray-100">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">שאלות נפוצות | الأسئلة الشائعة</h3>
+                <p class="text-gray-600">תשובות לשאלות הנפוצות ביותר | إجابات على أكثر الأسئلة شيوعاً</p>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up">
+                <!-- سؤال 1 -->
+                <div class="faq-item glass-card rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-right flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg">كم تستغرق عملية الترجمة المعتمدة؟ | כמה זמן לוקח תרגום מוסמך?</span>
+                        <i class="fas fa-chevron-down faq-icon text-primary"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 pb-4 leading-relaxed">
+                            تستغرق الترجمة المعتمدة العادية يومين إلى 3 أيام عمل. للترجمة السريعة، يمكن تسليمها خلال 24 ساعة بتكلفة إضافية. | תרגום מוסמך רגיל לוקח 2-3 ימי עבודה. לתרגום מהיר ניתן לספק תוך 24 שעות בתשלום נוסף.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- سؤال 2 -->
+                <div class="faq-item glass-card rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-right flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg">هل الترجمة مقبولة في المحاكم والسفارات؟ | האם התרגום מתקבל בבתי משפט ושגרירויות?</span>
+                        <i class="fas fa-chevron-down faq-icon text-primary"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 pb-4 leading-relaxed">
+                            نعم، جميع ترجماتنا معتمدة من وزارة العدل الفلسطينية (رقم الترخيص 352/2019) ومقبولة في جميع المحاكم والسفارات والجهات الحكومية. | כן, כל התרגומים שלנו מאושרים על ידי משרד המשפטים הפלסטיני (מספר רישיון 352/2019) ומתקבלים בכל בתי המשפט, השגרירויות והגורמים הממשלתיים.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- سؤال 3 -->
+                <div class="faq-item glass-card rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-right flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg">ما هي طرق الدفع المتاحة؟ | מהן אמצעי התשלום הזמינים?</span>
+                        <i class="fas fa-chevron-down faq-icon text-primary"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 pb-4 leading-relaxed">
+                            نحن نقبل الدفع نقداً، عبر التحويل البنكي، أو عبر PayPal. يمكن الدفع عند الاستلام للعملاء في قلقيلية والمناطق المجاورة. | אנו מקבלים תשלום במזומן, העברה בנקאית או PayPal. ניתן לשלם במעמד האספקה ללקוחות בקלקיליה והאזור.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- سؤال 4 -->
+                <div class="faq-item glass-card rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-right flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg">هل يمكن إرسال المستندات إلكترونياً؟ | האם ניתן לשלוח מסמכים באופן אלקטרוני?</span>
+                        <i class="fas fa-chevron-down faq-icon text-primary"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 pb-4 leading-relaxed">
+                            نعم، يمكنك إرسال المستندات عبر البريد الإلكتروني أو واتساب. سيتم إرسال الترجمة المعتمدة إليك بصيغة PDF عالية الجودة مع إمكانية استلام النسخة الأصلية من المكتب. | כן, ניתן לשלוח מסמכים בדוא"ל או בוואטסאפ. התרגום המאושר יישלח אליך בקובץ PDF באיכות גבוהה עם אפשרות לאסוף את העותק המקורי מהמשרד.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- سؤال 5 -->
+                <div class="faq-item glass-card rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-right flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg">كم تكلفة الترجمة للصفحة الواحدة؟ | כמה עולה תרגום לעמוד אחד?</span>
+                        <i class="fas fa-chevron-down faq-icon text-primary"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 pb-4 leading-relaxed">
+                            تبدأ أسعار الترجمة من 30 شيكل للصفحة للترجمة العادية، و50 شيكل للترجمة المعتمدة. الأسعار قابلة للتفاوض للمشاريع الكبيرة. | מחירי התרגום מתחילים מ-30 ש"ח לעמוד לתרגום רגיל, ו-50 ש"ח לתרגום מוסמך. המחירים ניתנים למשא ומתן לפרויקטים גדולים.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- سؤال 6 -->
+                <div class="faq-item glass-card rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-right flex items-center justify-between" onclick="toggleFaq(this)">
+                        <span class="font-bold text-lg">هل تقدمون خدمة التوصيل؟ | האם אתם מציעים שירות משלוח?</span>
+                        <i class="fas fa-chevron-down faq-icon text-primary"></i>
+                    </button>
+                    <div class="faq-answer px-6">
+                        <p class="text-gray-600 pb-4 leading-relaxed">
+                            نعم، نوفر خدمة التوصيل داخل قلقيلية والمناطق المجاورة. كما يمكن إرسال النسخ المعتمدة عبر البريد المسجل لأي مكان في فلسطين. | כן, אנו מספקים שירות משלוח בתוך קלקיליה והאזור. ניתן גם לשלוח עותקים מאושרים בדואר רשום לכל מקום בפלסטין.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم نموذج الطلب -->
+    <section id="order" class="py-20 px-4 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">הזמן תרגום מוסמך | اطلب ترجمة معتمدة</h3>
+                <p class="text-gray-600">מלא את הטופס ונחזור אליך תוך 24 שעות | املأ النموذج وسنتواصل معك خلال 24 ساعة</p>
+            </div>
+
+            <div class="glass-card rounded-2xl shadow-xl p-8 md:p-12 border-2 border-green-100" data-aos="fade-up">
+                <div class="flex items-center justify-center gap-2 bg-green-50 p-4 rounded-lg mb-6 border border-green-200">
+                    <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                    <span class="text-green-800 font-bold">כל התרגומים מאושרים על ידי משרד המשפטים 352/2019 | جميع الترجمات مصدقة من وزارة العدل</span>
+                </div>
+
+                <form id="translationForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">שם מלא | الاسم الكامل *</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="أدخل اسمك الكامل">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">טלפון | الهاتف *</label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="059-895-5585">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">אימייל | البريد الإلكتروني</label>
+                        <input type="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="qaqouni@gmail.com">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">סוג תרגום | نوع الترجمة *</label>
+                            <select name="serviceType" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+                                <option value="">בחר | اختر</option>
+                                <option value="legal">תרגום משפטי מוסמך | ترجمة قانونية معتمدة</option>
+                                <option value="police">פרוטוקול משטרה | محضر شرطة</option>
+                                <option value="medical">דוח רפואי | تقرير طبي</option>
+                                <option value="personal">מסמכים אישיים | مستندات شخصية</option>
+                                <option value="academic">תעודות אקדמיות | شهادات أكاديمية</option>
+                                <option value="other">אחר | أخرى</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">שפה | اللغة *</label>
+                            <select name="language" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+                                <option value="">בחר | اختر</option>
+                                <option value="ar-he">ערבית ↔ עברית | عربي ⇄ عبري</option>
+                                <option value="he-ar">עברית ↔ ערבית | عبري ⇄ عربي</option>
+                                <option value="ar-en">ערבית ↔ אנגלית | عربي ⇄ إنجليزي</option>
+                                <option value="en-ar">אנגלית ↔ ערבית | إنجليزي ⇄ عربي</option>
+                                <option value="other">אחר | أخرى</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">מספר עמודים | عدد الصفحات</label>
+                            <input type="number" name="pages" min="1" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="5">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-2">דחיפות | الاستعجال</label>
+                            <select name="urgency" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+                                <option value="normal">רגיל | عادي</option>
+                                <option value="urgent">דחוף (24 שעות) | عاجل (24 ساعة)</option>
+                                <option value="super-urgent">דחוף במיוחד | مستعجل جداً</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">הערות | ملاحظات</label>
+                        <textarea name="notes" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="أي ملاحظات إضافية..."></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full gradient-bg text-white font-bold py-4 rounded-lg hover:shadow-lg transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2">
+                        <span id="btnText">
+                            <i class="fas fa-paper-plane ml-2"></i>
+                            שלח בקשה | إرسال الطلب
+                        </span>
+                        <div id="btnLoader" class="loading-spinner hidden"></div>
+                    </button>
+                </form>
+
+                <div id="successMessage" class="hidden text-center py-12">
+                    <div class="success-checkmark">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-primary mb-2">הבקשה נשלחה בהצלחה! | تم إرسال الطلب بنجاح!</h4>
+                    <p class="text-gray-600 mb-4">נחזור אליך תוך 24 שעות | سنتواصل معك خلال 24 ساعة</p>
+                    <button onclick="resetForm()" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                        שלח בקשה נוספת | إرسال طلب آخر
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأسعار -->
+    <section id="prices" class="py-20 px-4 bg-gray-100">
+        <div class="container mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">מחירים | الأسعار</h3>
+                <p class="text-gray-600">מחירים שקופים לכל השירותים - כל התרגומים מאושרים על ידי משרד המשפטים</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="price-card glass-card rounded-2xl shadow-lg p-8 border-t-4 border-gray-400" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-bold text-gray-700 mb-2">תרגום רגיל | ترجمة عادية</h4>
+                        <div class="text-4xl font-bold text-primary">₪30</div>
+                        <p class="text-gray-500">לעמוד | للصفحة</p>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> תרגום מדויק | ترجمة دقيقة</li>
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> משלוח תוך 3 ימים | تسليم 3 أيام</li>
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> ביקורת לשונית | مراجعة لغوية</li>
+                    </ul>
+                    <a href="#order" class="block text-center border-2 border-primary text-primary font-bold py-3 rounded-lg hover:bg-primary hover:text-white transition">הזמן עכשיו | اطلب الآن</a>
+                </div>
+
+                <div class="price-card featured glass-card rounded-2xl shadow-xl p-8 border-t-4 border-accent relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-dark px-4 py-1 rounded-full text-sm font-bold">הכי נדרש | الأكثر طلباً</div>
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-bold text-gray-700 mb-2">תרגום מוסמך | ترجمة معتمدة</h4>
+                        <div class="text-4xl font-bold text-primary">₪50</div>
+                        <p class="text-gray-500">לעמוד | للصفحة</p>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> חותם משרד מוסמך | ختم مكتب معتمد</li>
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> אישור משרד המשפטים | تصديق وزارة العدل</li>
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> משלוח תוך יומיים | تسليم يومين</li>
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> עותק אלקטרוני PDF | نسخة إلكترونية</li>
+                    </ul>
+                    <a href="#order" class="block text-center gradient-bg text-white font-bold py-3 rounded-lg hover:shadow-lg transition">הזמן עכשיו | اطلب الآن</a>
+                </div>
+
+                <div class="price-card glass-card rounded-2xl shadow-lg p-8 border-t-4 border-red-500" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-bold text-gray-700 mb-2">תרגום מהיר מוסמך | ترجمة سريعة معتمدة</h4>
+                        <div class="text-4xl font-bold text-primary">₪80</div>
+                        <p class="text-gray-500">לעמוד | للصفحة</p>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> חותם + אישור משרד המשפטים | ختم + تصديق</li>
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> משלוח תוך 24 שעות | تسليم 24 ساعة</li>
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> עדיפות בביצוע | أولوية في التنفيذ</li>
+                        <li class="flex items-center gap-2 text-gray-600"><i class="fas fa-check text-green-500"></i> אפשרות משלוח | توصيل متاح</li>
+                    </ul>
+                    <a href="#order" class="block text-center border-2 border-red-500 text-red-500 font-bold py-3 rounded-lg hover:bg-red-500 hover:text-white transition">הזמן עכשיו | اطلب الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخريطة والاتصال -->
+    <section id="contact" class="py-20 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold text-primary mb-4">צור קשר | اتصل بنا</h3>
+                <p class="text-gray-600">בקרו אותנו או צרו קשר | زورونا أو تواصلوا معنا</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- معلومات الاتصال -->
+                <div class="glass-card rounded-2xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-2xl font-bold text-primary mb-6">פרטי התקשרות | معلومات الاتصال</h4>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">טלפון | هاتف</p>
+                                <p class="font-bold text-lg">09-2943841</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">וואטסאפ | واتساب</p>
+                                <p class="font-bold text-lg">059-895-5585</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">אימייל | بريد إلكتروني</p>
+                                <p class="font-bold text-lg">qaqouni@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">כתובת | العنوان</p>
+                                <p class="font-bold">שוק עות'מאן המסחרי, קלקיליה | سوق عثمان التجاري، قلقيلية</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 text-sm">שעות פתיחה | ساعات العمل</p>
+                                <p class="font-bold">א'-ה': 09:00-21:00 | الأحد-الخميس</p>
+                                <p class="font-bold">ו': 15:00-17:00, 20:30-24:00 | الجمعة</p>
+                                <p class="font-bold">שבת: 00:00-21:00 | السبت</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- خريطة Google Maps -->
+                <div class="glass-card rounded-2xl shadow-lg p-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="map-container h-full min-h-[400px]">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3374.7586767850374!2d34.9706!3d32.1968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d3f7c2f0f0f0f%3A0x0!2zMzLCsDExJzQ4LjUiTiAzNMKwNTgnMTQuMiJF!5e0!3m2!1sar!2s!4v1609459200000!5m2!1sar!2s"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="bg-dark text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4 text-accent">משרד קאקון לתרגום | مكتب قاقون للترجمة</h4>
+                    <p class="text-gray-400 leading-relaxed mb-4 text-sm">
+                        משרד תרגום משפטי מוסמך מטעם משרד המשפטים הפלסטיני - מספר רישיון 352/2019. מציע שירותי תרגום מוסמכים לשפות ערבית, עברית ואנגלית מאז 2020.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/alameedinhebrew" target="_blank" class="social-btn w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@alameedinhebrew" target="_blank" class="social-btn w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@alameedinhebrew" target="_blank" class="social-btn w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-black transition"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/972598955585" target="_blank" class="social-btn w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-500 transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-4">קישורים מהירים | روابط سريعة</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#services" class="hover:text-accent transition">שירותים | خدمات</a></li>
+                        <li><a href="#testimonials" class="hover:text-accent transition">ביקורות | آراء العملاء</a></li>
+                        <li><a href="#order" class="hover:text-accent transition">הזמן תרגום | اطلب ترجمة</a></li>
+                        <li><a href="#prices" class="hover:text-accent transition">מחירים | الأسعار</a></li>
+                        <li><a href="#faq" class="hover:text-accent transition">שאלות נפוצות | الأسئلة الشائعة</a></li>
+                        <li><a href="https://www.facebook.com/QaqunTranslationOffice" target="_blank" class="hover:text-accent transition">דף הפייסבוק | صفحة الفيسبوك</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-4">פרטי התקשרות | معلومات الاتصال</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-center gap-3"><i class="fas fa-phone text-accent"></i> 09-2943841</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-mobile-alt text-accent"></i> 059-895-5585</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-mobile-alt text-accent"></i> 056-895-5585</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-envelope text-accent"></i> qaqouni@gmail.com</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-accent mt-1"></i> שוק עות'מאן המסחרי, קלקיליה | سوق عثمان التجاري، قلقيلية</li>
+                    </ul>
+                    <div class="mt-6 p-4 bg-green-900/30 rounded-lg border border-green-500/30">
+                        <div class="flex items-center gap-2 text-green-400">
+                            <i class="fas fa-shield-alt"></i>
+                            <span class="font-bold text-sm">רישיון משרד המשפטים: 352/2019</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2020 - 2024 משרד קאקון לתרגום משפטי מוסמך. כל הזכויות שמורות.</p>
+                <p class="mt-2"><i class="fas fa-shield-alt text-green-500 ml-2"></i> מוסמך מטעם משרד המשפטים הפלסטיני - מספר רישיון: 352/2019</p>
+                <p class="mt-1">מאושר על ידי לשכת המסחר, התעשייה והחקלאות של מחוז קלקיליה</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر واتساب العائم -->
+    <a href="https://wa.me/972598955585" target="_blank" class="fixed bottom-6 left-6 bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition z-50 animate-bounce">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize EmailJS
+        emailjs.init("YOUR_PUBLIC_KEY");
+
+        // تبديل اللغة
+        let currentLang = 'ar';
+        function toggleLanguage() {
+            const arElements = document.querySelectorAll('[id$="Ar"]');
+            const heElements = document.querySelectorAll('[id$="He"]');
+            const btn = document.getElementById('langBtn');
+            
+            if (currentLang === 'ar') {
+                arElements.forEach(el => el.classList.add('hidden'));
+                heElements.forEach(el => {
+                    el.classList.remove('hidden');
+                    if(el.tagName === 'H2' || el.tagName === 'P') el.classList.add('block');
+                });
+                btn.textContent = 'العربية';
+                currentLang = 'he';
+                document.body.style.direction = 'rtl';
+            } else {
+                arElements.forEach(el => el.classList.remove('hidden'));
+                heElements.forEach(el => el.classList.add('hidden'));
+                btn.textContent = 'עברית';
+                currentLang = 'ar';
+                document.body.style.direction = 'rtl';
+            }
+        }
+
+        // القائمة المتنقلة
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.faq-icon').classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/Hide Scroll to Top Button
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        // إرسال النموذج
+        document.getElementById('translationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btnText = document.getElementById('btnText');
+            const btnLoader = document.getElementById('btnLoader');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Show loading
+            btnText.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+            submitBtn.disabled = true;
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Send via EmailJS
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                name: data.name,
+                phone: data.phone,
+                email: data.email || 'غير متوفر',
+                serviceType: data.serviceType,
+                language: data.language,
+                pages: data.pages || 'غير محدد',
+                urgency: data.urgency,
+                notes: data.notes || 'لا يوجد'
+            }).then(function(response) {
+                // Hide loading
+                btnText.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+                submitBtn.disabled = false;
+                
+                // Show success
+                document.getElementById('translationForm').classList.add('hidden');
+                document.getElementById('successMessage').classList.remove('hidden');
+                
+                // Also send WhatsApp notification
+                const whatsappMessage = `הזמנת תרגום חדשה:|طلب ترجمة جديد:%0A%0Aשם|اسم: ${data.name}%0Aטלפון|هاتف: ${data.phone}%0Aאימייל|بريد: ${data.email || '-'}%0Aסוג תרגום|نوع: ${data.serviceType}%0Aשפה|لغة: ${data.language}%0Aעמודים|صفحات: ${data.pages || '-'}%0Aדחיפות|استعجال: ${data.urgency}%0Aהערות|ملاحظات: ${data.notes || '-'}%0A%0Aמשרד המשפטים 352/2019`;
+                window.open(`https://wa.me/972598955585?text=${whatsappMessage}`, '_blank');
+            }, function(error) {
+                // Hide loading
+                btnText.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+                submitBtn.disabled = false;
+                
+                alert('אירעה שגיאה בשליחת הטופס. נסה שוב. | حدث خطأ في إرسال النموذج. حاول مرة أخرى.');
+            });
+        });
+
+        function resetForm() {
+            document.getElementById('translationForm').reset();
+            document.getElementById('translationForm').classList.remove('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
